@@ -64,7 +64,7 @@ public class paintFrame extends JFrame {
 		public void mousePressed(MouseEvent e) {
 		}
 
-		// pour changer la couleur
+		// to change the color
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			for (Component comp : panelColor.getComponents()) {
@@ -88,7 +88,7 @@ public class paintFrame extends JFrame {
 		}
 
 		@Override
-		// pour changer l'icon du curseur
+		// to change icon cursor
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() instanceof JToggleButton && e.getSource() != tglbtnColor1
 					&& e.getSource() != tglbtnColor2) {
@@ -97,7 +97,7 @@ public class paintFrame extends JFrame {
 				rootPane.setCursor(monCurseur);
 			}
 
-			// pour changer le stroke
+			// to change stroke
 			if (e.getSource() == txtFdLargeur) {
 				if (!txtFdLargeur.getText().isEmpty()) {
 					int largeur = Integer.parseInt(txtFdLargeur.getText());
@@ -111,7 +111,7 @@ public class paintFrame extends JFrame {
 					txtFdLargeur.setText(Integer.toString(panel.getStroke()));
 
 			}
-			// le boutton save
+			// lthe save button
 			if (e.getSource() == save) {
 
 				try {
@@ -143,9 +143,6 @@ public class paintFrame extends JFrame {
 	private JToggleButton rectangle;
 	private JToggleButton fill;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -202,11 +199,7 @@ public class paintFrame extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		// ???
-		/*
-		 * for (var component : getContentPane().getComponents()) {
-		 * component.setFocusable(false); }
-		 */
+	
 
 		panel.setFocusable(true);
 
@@ -278,7 +271,7 @@ public class paintFrame extends JFrame {
 		txtFdLargeur = new JTextField();
 		txtFdLargeur.setText("10");
 		// https://stackoverflow.com/questions/20541230/allow-only-numbers-in-jtextfield
-		// pour accepter seulement les digits
+		// to only accept ints
 		((AbstractDocument) txtFdLargeur.getDocument()).setDocumentFilter(new DocumentFilter() {
 			Pattern regEx = Pattern.compile("\\d*");
 
@@ -305,7 +298,6 @@ public class paintFrame extends JFrame {
 		crayon.setSelected(true);
 		panelOutils.add(crayon);
 		crayon.setIcon(new ImageIcon("icones/crayon.gif"));
-		// buttonGroupOutil.add(tglbtnNewToggleButton);
 
 		efface = new JToggleButton("");
 		efface.setIcon(new ImageIcon("icones/efface.gif"));
@@ -377,7 +369,7 @@ public class paintFrame extends JFrame {
 
 		panel.requestFocusInWindow();
 
-		// set le cursor au crayon
+		// set the cursor to pencil
 		monCurseur = tk.createCustomCursor(((ImageIcon) crayon.getIcon()).getImage(), new Point(10, 26), "");
 		rootPane.setCursor(monCurseur);
 
@@ -386,9 +378,9 @@ public class paintFrame extends JFrame {
 		save.addActionListener(e);
 		txtFdLargeur.addActionListener(e);
 
-		// adder l'ecouteur pour tous les Components dans le panelColor
+		// add event listener to all panelColor components
 		for (Component comp : panelColor.getComponents())
-			// on add des ecouteurs seulement au JLabel
+			// only adds event listener to JLabel
 			if (comp instanceof JLabel)
 
 				comp.addMouseListener(e);
@@ -467,7 +459,7 @@ public class paintFrame extends JFrame {
 
 			}
 
-			// crée un nouveau figure geometrique sur un click
+			// creates a new figureGeometrique on click
 			@Override
 			public void mousePressed(MouseEvent e) {
 
@@ -497,7 +489,7 @@ public class paintFrame extends JFrame {
 
 			}
 
-			// la pippette
+			// the pipette
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				if (pipette.isSelected()) {
@@ -508,7 +500,7 @@ public class paintFrame extends JFrame {
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						Color2.setBackground(couleur);
 					}
-					// remet le crayon et l'icon du crayon au curseur
+				
 					crayon.setSelected(true);
 					monCurseur = tk.createCustomCursor(((ImageIcon) crayon.getIcon()).getImage(), new Point(10, 26),
 							"");
@@ -529,8 +521,7 @@ public class paintFrame extends JFrame {
 		public drawPanel() {
 			this.setBackground(Color.white);
 
-			// !!!!! IMPORATANT !!!!!!
-			//
+			
 			setFocusable(true);
 			setLayout(null);
 
@@ -543,7 +534,7 @@ public class paintFrame extends JFrame {
 
 		}
 
-		// dessine le verteur
+		// Draw the vector
 		@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -563,7 +554,7 @@ public class paintFrame extends JFrame {
 			return stroke;
 		}
 
-		// pour le control+z
+		// for ctrl+z
 		public void annuler() {
 			if (VectFigure.size() > 0) {
 				VectFigure.remove(VectFigure.size() - 1);
