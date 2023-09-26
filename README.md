@@ -14,6 +14,9 @@
 <img src="img/beauDessin.png">
 
 ## Description
+A copy of paint using java with WindowBuilder for the UI. The brush can be changed to an eraser, a colour picker or a filler. Can change the brush size. Options for drawing squares, circles and triangles. Possible to assign 2 colours for right and left click. By pressing ctrl+z you can remove the last placed element. There is an option to save the drawing with the save button.  
+
+The drawing is a vector and, with the use of Inheritance classes, it can be filled with shapes and lines. 
 
 ## Technologies used
 <ul>
